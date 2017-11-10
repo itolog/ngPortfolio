@@ -1,0 +1,77 @@
+@import '../../../assets/source/mixins/mixins.scss';
+.welcome-autoriz{
+  display: flex;
+  flex-flow: column;
+  align-self: center;
+  text-align: center;
+  width: 100%;
+}
+.welcom-autoriz__head{
+  display: flex;
+  padding: 20px;
+  color: white;
+  flex-flow: column;
+  &:after{
+    @include afterLine(white);
+  }
+}
+.welcome-autoriz__form{
+  display: flex;
+  flex-flow: column;
+}
+.welcome-autoriz__input{
+  margin-bottom: 5px;
+  border-radius: 10px;
+  text-align: center;
+  overflow: hidden;
+  height: 25px;
+  width: 90%;
+}
+.welcome-autoriz__input-wrapp{
+  position: relative;
+  margin-bottom: 10px;
+}
+.welcome-autoriz__img{
+  position: absolute;
+  left: 35px;
+  top: 4px;
+  @include phones {
+    left: 25px;
+  }
+}
+.welcome-autoriz__checkbox{
+  margin-bottom: 10px;
+  color: white;
+  font-size: 18px;
+}
+.welcome-autoriz__input_checkbox{
+  margin-right: 10px;
+  width: 15px;
+  height: 15px;
+}
+.welcome-autoriz__span{
+  cursor: pointer;
+}
+//autorize btn
+.welcome-autoriz-btn{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+.welcome-autoriz-btn__item{
+  flex: 1;
+  text-align:  center;
+  height: 100%;
+}
+.welcome-autoriz-btn__item-btn{
+  width: 100%;
+  height: 50px;
+  background: green;
+  border: none;
+  cursor: pointer;
+  color: white;
+  &:hover{
+    background: none;
+    font-size: 18px;
+  }
+}

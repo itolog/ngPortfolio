@@ -1,0 +1,35 @@
+.hero{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  margin-bottom: 20px;
+  .hero__ava{
+    width: 145px;
+    height: 145px;
+    border-radius: 50%;
+    border: 1px solid white;
+    overflow: hidden;
+    width: 140px;
+    height: 140px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  .hero__img{
+    width: 100%;
+  }
+}
+
+.hero-info{
+  position: relative;
+  display: flex;
+  text-align: center;
+  line-height: 13px;
+  flex-flow: column;
+  align-self: center;
+  margin-bottom: 20px;
+  color: white;
+}
+.hero-info__name{
+  margin-bottom: 10px;
+}

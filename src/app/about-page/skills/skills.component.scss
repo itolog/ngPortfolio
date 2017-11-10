@@ -1,0 +1,69 @@
+@import '../../../assets/source/mixins/mixins.scss';
+.skils{
+  text-align: center;
+  padding-top: 40px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.skils__what-i-can{
+  display: flex;
+  flex-flow: column;
+  margin-bottom: 10px;
+  &:after{
+    @include afterLine(grey);
+  }
+}
+.skils__text{
+  text-align: left;
+  padding-left: 15px;
+  margin-bottom: 50px;
+}
+// skils items
+.skils__items{
+  display: flex;
+  flex-flow: column;
+}
+.skils__name{
+  margin-bottom: 10px;
+  text-align: left;
+}
+.skils__items-ul{
+  display: flex;
+  flex-wrap: wrap;
+}
+.skils__item{
+  position: relative;
+  width: 120px;
+  height: 120px;
+  // border: 1px solid green;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  &:last-child{
+    margin-right: 0px;
+  }
+}
+.skils__item-name{
+  position: absolute;
+  top: 40%;
+  left: 30%;
+}
+// svg circles
+.circles{
+  fill: none;
+  stroke-width: 15;
+}
+.circle__first{
+  stroke: #dfdcd5;
+}
+.circle__second{
+  stroke: #1bb696;
+  stroke-dasharray: .0010 282.6;
+  transition: 1s;
+}
+.circles:hover{
+  .circle__second{
+
+    stroke-dasharray: 28.26 282.6;
+
+  }
+}

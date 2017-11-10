@@ -1,0 +1,37 @@
+<section class="welcome-autoriz">
+  <div class="welcom-autoriz__head">
+    <h3 class="welcom-autoriz__head-h3">
+      Авторизуйтесь
+    </h3>
+  </div>
+  <form class="welcome-autoriz__form">
+    <!-- login -->
+    <div class="welcome-autoriz__input-wrapp">
+      <i class="welcome-autoriz__img fa fa-sign-in"></i>
+      <input type="text" name="login" class="welcome-autoriz__input_login welcome-autoriz__input" placeholder="login">
+    </div>
+    <!-- pass -->
+    <div class="welcome-autoriz__input-wrapp">
+      <i class="welcome-autoriz__img fa fa-key"></i>
+      <input type="password" name="pass" class="welcome-autoriz__input_password welcome-autoriz__input" placeholder="password">
+    </div>
+    <!-- i am human -->
+    <div class="welcome-autoriz__checkbox">
+      <input type="checkbox" name="checkbox" id="check" class="welcome-autoriz__input_checkbox">
+      <span class="welcome-autoriz__span">
+							<label for="check">Я человек</label>
+						</span>
+    </div>
+  </form>
+  <!-- section btn welcome -->
+  <ul class="welcome-autoriz-btn">
+    <li class="welcome-autoriz-btn__item">
+      <button class="welcome-autoriz-btn__item-btn"
+      (click)="isVisibleFalse()"
+      > На главную</button>
+    </li>
+    <li class="welcome-autoriz-btn__item">
+      <button class="welcome-autoriz-btn__item-btn" (click)="logIn()"> Войти</button>
+    </li>
+  </ul>
+</section>

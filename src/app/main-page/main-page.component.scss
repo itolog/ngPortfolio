@@ -1,0 +1,25 @@
+@import '../../assets/source/mixins/mixins.scss';
+.wrapper-welcom{
+  display: flex;
+  flex-flow: column;
+  height: 100vh;
+  background-image: url('./../../assets/img/mac.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+//section content
+.welcome-content{
+  display: flex;
+  align-self: center;
+  flex-flow: column;
+  width: 385px;
+  background-color: rgba(25, 69, 73, 0.6);
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  @include tablets {
+    width: 60%;
+  }
+  @include phones {
+    width: 80%;
+  }
+}

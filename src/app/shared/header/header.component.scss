@@ -1,0 +1,68 @@
+.header{
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  background-image: url('./../../../assets/img/web-dev.jpg');
+  -webkit-background-size: 100% 100%;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+.navigation{
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  padding: 15px;
+}
+
+.menu{
+  position: relative;
+  cursor: pointer;
+  z-index: 9000;
+}
+.burger{
+  color: white;
+  &:hover{
+    color: #0f7595;
+  }
+}
+.triangle{
+  display: flex;
+  height: 150px;
+  width: 100%;
+  position: absolute;
+  bottom: 0px;
+}
+.triangle-left{
+  flex: 1;
+  background-image:url('../../../assets/img/icons/about_bg_left.svg');
+
+}
+.triangle-right{
+  flex: 1;
+  background:url('../../../assets/img/icons/about_bg_left.svg');
+  transform: rotateY(180deg);
+}
+// fa-arrow-down
+.arrow-down{
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+}
+// animation upp
+@keyframes upp {
+  from{
+    transform: translateY(-10px);
+  }
+  to{
+    transform: translateY(0px);
+  }
+}
+.down{
+  cursor: pointer;
+  animation: upp 2s ease-out infinite;
+  color: white;
+}

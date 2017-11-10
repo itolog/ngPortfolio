@@ -1,0 +1,7 @@
+<div class="wrapper-welcom">
+  <app-autorize></app-autorize>
+  <div class="welcome-content" >
+    <app-welcome-main *ngIf="!isVisible"></app-welcome-main>
+    <app-welcome-autorize *ngIf="isVisible"></app-welcome-autorize>
+  </div>
+</div>

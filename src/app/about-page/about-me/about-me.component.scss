@@ -1,0 +1,42 @@
+@import '../../../assets/source/mixins/mixins.scss';
+.about-me{
+  height: 100%;
+  text-align: center;
+  background: #ebefe1;
+}
+.about-me__h2{
+  display: flex;
+  flex-flow: column;
+  margin-bottom: 10px;
+  padding-top: 20px;
+  &:after{
+    @include afterLine(grey);
+  }
+}
+.hero__ava_noborder{
+  border: 2px solid green;
+  overflow: hidden;
+  width: 240px;
+  height: 280px;
+}
+
+.about-me__who-i-am{
+  display: flex;
+  flex-flow: column;
+  margin-bottom: 10px;
+  &:after{
+    @include afterLine(grey);
+  }
+}
+.about-me__text{
+  text-align: left;
+  padding: 13px;
+}
+.hero{
+  display: flex;
+  justify-content: center;
+  padding-bottom: 20px;
+}
+.hero__img{
+  width: 100%;
+}

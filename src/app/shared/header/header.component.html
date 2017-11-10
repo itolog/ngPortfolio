@@ -1,0 +1,40 @@
+<header class="header">
+  <!--<div class="bg">-->
+    <!--<img src="./../assets/img/water.jpg" alt="water" class="bg__img"/>-->
+  <!--</div>-->
+  <section class="navigation">
+    <!-- social link -->
+    <app-socia-link></app-socia-link>
+    <!-- menu -->
+    <div class="menu" (click)="modalShow()">
+      <i class="fa fa-2x fa-bars burger" aria-hidden="true" *ngIf="isVisible"></i>
+      <i class="fa fa-window-close fa-2x close" aria-hidden="true" *ngIf="!isVisible"></i>
+    </div>
+  </section>
+  <!-- section hero -->
+  <!-- ava -->
+  <app-hero></app-hero>
+  <div class="arrow-down">
+    <i class="fa fa-arrow-down fa-2x down" aria-hidden="true" (click)="oneScrollDown()"></i>
+  </div>
+  <div class="triangle">
+    <div class="triangle-left"></div>
+    <div class="triangle-right"></div>
+  </div>
+</header>
+<!--MODAL WINDOW-->
+<div class="modal-menu" [@modalAnim]="modalStatus">
+  <div class="modal-menu__left"></div>
+  <div class="modal-menu__right"></div>
+  <ul class="modal-menu__nav">
+    <li class="modal-menu__nav-item">
+      <a class="modal-menu__link" (click)="toMain()">На главную</a>
+    </li>
+    <li class="modal-menu__nav-item">
+      <a class="modal-menu__link">Мои работы</a>
+    </li>
+    <li class="modal-menu__nav-item">
+      <a class="modal-menu__link" href="">Блог</a>
+    </li>
+  </ul>
+</div>

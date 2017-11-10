@@ -1,0 +1,65 @@
+.icon {
+    font-size: 10px;
+}
+
+.icon:before {
+    content:' ';
+    vertical-align:middle;
+    display: inline-block;
+    background-image: url("../svg/sprite.svg");
+    background-repeat: no-repeat;
+    background-size: 3.0011em 9.6em;
+}
+
+.no-svg .icon:before {
+    background-image: url("../svg/sprite.png");
+}
+
+
+
+  .icon.github:before {
+      background-position: 0em 0em;
+      width: 2.6em;
+      height: 2.2em;
+  }
+
+
+
+
+  .icon.login:before {
+      background-position: 0em -2.2em;
+      width: 1.4137em;
+      height: 1.5422em;
+  }
+
+
+
+
+  .icon.password:before {
+      background-position: 0em -3.8em;
+      width: 1.6896999999999998em;
+      height: 1.5984em;
+  }
+
+
+
+
+  .icon.skype:before {
+      background-position: 0em -5.4em;
+      width: 2.4em;
+      height: 2.4em;
+  }
+
+
+
+
+  .icon.vk:before {
+      background-position: 0em -7.8em;
+      width: 3.0011em;
+      height: 1.7123000000000002em;
+  }
+
+
+
+
+

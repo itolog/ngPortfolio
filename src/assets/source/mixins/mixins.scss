@@ -1,0 +1,43 @@
+//media query
+@mixin desktop() {
+	@media screen and (max-width: 1200px) {
+		@content;
+	}
+}
+@mixin laptop() {
+	@media screen and (max-width: 992px) {
+		@content;
+	}
+}
+@mixin tablets() {
+	@media screen and (max-width: 768px) {
+		@content;
+	}
+}
+@mixin phones() {
+  @media screen and (max-width: 480px) {
+    @content;
+  }
+}
+//input
+@mixin input($src) {
+  position: absolute;
+	padding-left: 10px;
+	background: url("./../img/icons/" + $src + ".svg");
+	background-repeat: no-repeat;
+	background-position: 10px 4px;
+	height: 20px;
+	width: 20px;
+	border-top-left-radius: 10px;
+	border-bottom-left-radius: 10px;
+}
+
+// after
+@mixin afterLine($color) {
+  	content: "";
+		display: block;
+		border: 2px solid $color;
+		width: 80px;
+		align-self: center;
+		margin-top: 10px;
+}

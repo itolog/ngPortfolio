@@ -1,0 +1,8 @@
+@import '../../assets/source/mixins/mixins.scss';
+.main-about{
+  display: flex;
+  position: relative;
+  @include tablets {
+    flex-flow: column;
+  }
+}
