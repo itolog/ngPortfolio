@@ -13,6 +13,7 @@ import {AboutPageModule} from './about-page/about-page.module';
 import {MainPageModule} from './main-page/main-page.module';
 import {SharedModule} from './shared/shared.module';
 import {AdminModule} from './admin/admin.module';
+import {WorksPageModule} from './works-page/works-page.module';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import {AdminModule} from './admin/admin.module';
     AboutPageModule,
     MainPageModule,
     SharedModule,
-    AdminModule
+    AdminModule,
+    WorksPageModule
   ],
   providers: [],
   bootstrap: [AppComponent]

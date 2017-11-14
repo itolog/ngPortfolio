@@ -18,6 +18,12 @@ export class HeaderComponent implements OnInit {
   toMain() {
     this.router.navigate(['/']);
   }
+  toWorks() {
+    this.router.navigate(['/works']);
+  }
+  toAbout() {
+    this.router.navigate(['/about']);
+  }
   oneScrollDown() {
     window.scrollBy(0, window.innerHeight);
   }
