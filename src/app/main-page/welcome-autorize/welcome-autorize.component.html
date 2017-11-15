@@ -4,16 +4,44 @@
       Авторизуйтесь
     </h3>
   </div>
-  <form class="welcome-autoriz__form">
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" class="welcome-autoriz__form">
     <!-- login -->
     <div class="welcome-autoriz__input-wrapp">
       <i class="welcome-autoriz__img fa fa-sign-in"></i>
-      <input type="text" name="login" class="welcome-autoriz__input_login welcome-autoriz__input" placeholder="login">
+      <input
+        [ngClass]="{'has-error': form.get('login').invalid && form.get('login').touched}"
+        formControlName="login"
+        type="text"
+        name="login"
+        class="welcome-autoriz__input_login welcome-autoriz__input"
+        placeholder="login">
+      <span class="text-success" *ngIf="form.get('login').valid">Success message.</span>
+        <span class="form-help-text" *ngIf="form.get('login').invalid && form.get('login').touched">
+          <span *ngIf="form.get('login')['errors']['required']">Имя не может быть пустым!</span>
+         </span>
     </div>
     <!-- pass -->
     <div class="welcome-autoriz__input-wrapp">
       <i class="welcome-autoriz__img fa fa-key"></i>
-      <input type="password" name="pass" class="welcome-autoriz__input_password welcome-autoriz__input" placeholder="password">
+      <input
+        [ngClass]="{'has-error': form.get('password').invalid && form.get('password').touched}"
+        formControlName="password"
+        type="password"
+        name="pass"
+        class="welcome-autoriz__input_password welcome-autoriz__input"
+        placeholder="password">
+      <span
+        class="form-help-text"
+        *ngIf="form.get('password').invalid && form.get('password').touched"
+      >
+      <span *ngIf="form.get('password')['errors']['required']">Пароль не может быть пустым!</span>
+        <span *ngIf="form.get('password')['errors']['minlength']
+            && form.get('password')['errors']['minlength']['requiredLength']
+         ">
+        Пароль не должен быть меньше
+        {{ form.get('password')['errors']['minlength']['requiredLength'] }}
+        символов.Сейчас {{ form.get('password')['errors']['minlength']['actualLength'] }}</span>
+    </span>
     </div>
     <!-- i am human -->
     <div class="welcome-autoriz__checkbox">
@@ -31,7 +59,9 @@
       > На главную</button>
     </li>
     <li class="welcome-autoriz-btn__item">
-      <button class="welcome-autoriz-btn__item-btn" (click)="logIn()"> Войти</button>
+      <button class="welcome-autoriz-btn__item-btn" (click)="logIn()"
+              [ngClass]="{'btn-err': form.invalid}"
+      > Войти</button>
     </li>
   </ul>
 </section>

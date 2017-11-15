@@ -1,0 +1,34 @@
+<section class="write">
+  <form class="write--form" [formGroup]="form" (ngSubmit)="onSubmit()">
+    <h2 class="write--form__title">Связатся со мной</h2>
+    <!--name ----------------------->
+    <input
+      type="text"
+      formControlName="name"
+      class="write--form__input"
+      placeholder="Имя">
+    <span class="form-help-text text-success" *ngIf="form.get('name').valid">Success message.</span>
+    <span class="form-help-text" *ngIf="form.get('name').invalid && form.get('name').touched">
+      <span *ngIf="form.get('name')['errors']['required']">Имя не может быть пустым!</span>
+    </span>
+    <!--email  --------------->
+    <input
+      type="email"
+      formControlName="email"
+      class="write--form__input"
+      placeholder="Email">
+    <div
+      class="form-help-text"
+      *ngIf="form.get('email').invalid && form.get('email').touched"
+    >
+      <span *ngIf="form.get('email')['errors']['required']">Email не может быть пустым!</span><br>
+      <span *ngIf="form.get('email')['errors']['email']">Введите корректный Email</span>
+    </div>
+    <textarea name="area" id="" cols="30" rows="10" class="write--form__textarea" placeholder="Ваше сообшение"></textarea>
+    <div class="buttons">
+      <button class="buttons--btn" type="submit" [ngClass]="{'btn-err': form.invalid}">Отправить</button>
+      <button class="buttons--btn" type="reset">Очистить</button>
+    </div>
+  </form>
+  <app-footer></app-footer>
+</section>

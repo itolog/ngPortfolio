@@ -1,0 +1,64 @@
+@import '../../../assets/source/mixins/mixins.scss';
+.write{
+  display: flex;
+  flex-flow: column;
+  height: 100vh;
+  width: 100%;
+  justify-content: center;
+  background-image: url('../../../assets/img/Angular.jpg');
+  -webkit-background-size: 100% 100%;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+.write--form{
+  display: flex;
+  margin: auto;
+  flex-flow: column;
+  align-items: center;
+  width: 375px;
+  background: rgba(25, 69, 73, 0.6);
+  border-radius: 5px;
+  @include phones{
+    width: 90%;
+  }
+}
+.write--form__title{
+  display: flex;
+  flex-flow: column;
+  text-align: center;
+  padding: 10px 0 10px 0;
+  color: #dfdcd5;
+  &:after{
+    text-align: center;
+    @include afterLine(white);
+  }
+}
+.write--form__input {
+  width: 80%;
+  margin-bottom: 10px;
+  border: none;
+  border-radius: 10px;
+  background: white;
+  text-align: center;
+  height: 30px;
+}
+.write--form__textarea{
+  width: 80%;
+  margin-bottom: 10px;
+}
+.buttons{
+  display: flex;
+  align-content: stretch;
+  width: 100%;
+}
+.buttons--btn{
+  flex: 1;
+  background: green;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  &:hover{
+    background: transparent;
+    color: orangered;
+  }
+}

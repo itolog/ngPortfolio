@@ -1,0 +1,103 @@
+@import '../../../assets/source/mixins/mixins.scss';
+.slider{
+  display: flex;
+  position: relative;
+  height: 100vh;
+  flex-flow: column;
+  overflow: hidden;
+}
+.slider--wrapp{
+  display: flex;
+  flex-flow: row;
+  height: 100%;
+  @include tablets {
+    flex-flow: column;
+  }
+}
+.slider--title{
+  display: flex;
+  flex-flow: column;
+  text-align: center;
+  margin-bottom: 20px;
+  &:after{
+    text-align: center;
+    @include afterLine(grey);
+  }
+}
+.button-wrapp{
+  display: flex;
+  flex: 1;
+  flex-flow: column;
+  @include tablets{
+    flex-flow: row;
+  }
+}
+.btn-slider{
+  background: lightslategrey;
+  opacity: 0.6;
+  color: black;
+  flex: 1;
+  cursor:  pointer;
+  &:hover{
+    background: darkslategrey;
+    color: whitesmoke;
+    border: 1px solid blanchedalmond;
+  }
+}
+.slider--wrapp__works{
+  flex: 9;
+  position: relative;
+  background: lightslategrey;
+}
+.slider--items{
+  position: absolute;
+  display: flex;
+  flex-flow: row;
+  width: 100%;
+  height: 100%;
+  box-shadow: inset 0 0 10px rgba(0,0,0,0.5);
+  @include phones{
+    flex-flow: column-reverse;
+  }
+}
+.slider--items__img{
+  display: flex;
+  flex: 1;
+  img{
+    width: 100%;
+    height: 100%;
+  }
+  @include phones{
+    flex: 2;
+  }
+}
+.slider--items__info{
+  display: flex;
+  padding: 10px;
+  align-items: center;
+  flex-flow: column;
+  align-self: center;
+  flex: 1;
+  p {
+    margin-bottom: 10px;
+  }
+  a{
+    padding: 10px;
+    width: 70%;
+    text-align: center;
+    background: greenyellow;
+    color: #000;
+    border-radius: 10px;
+    &:hover{
+      background: darkslategrey;
+    }
+  }
+}
+.slider--items__info_title{
+  display: flex;
+  flex-flow: column;
+  text-align: center;
+  &:after{
+    @include afterLine(grey);
+  }
+}

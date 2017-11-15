@@ -17,3 +17,25 @@ a{
 li{
   list-style: none;
 }
+.has-error{
+    border: 2px solid red;
+  }
+.form-help-text{
+  float: left;
+  width: 100%;
+  font-family: "911", "Agency FB", verdana, helvetica, sans-serif;
+  color: whitesmoke;
+  text-align: center;
+}
+.text-success{
+  color: green;
+  text-align: center;
+}
+.btn-err{
+  cursor: not-allowed;
+  pointer-events: none;
+  /*Button disabled - CSS color class*/
+  color: #c0c0c0;
+  background-color: #ffffff;
+  opacity: 0.6;
+}
