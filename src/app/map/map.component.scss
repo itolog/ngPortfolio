@@ -9,31 +9,4 @@
 .map-contant__fraime{
   flex: 3;
 }
-.map-contant__upp{
-  display: flex;
-  flex: 1;
-  align-items: flex-end;
-}
-.map-contant__upp_wrapp{
-  display: flex;
-  cursor: pointer;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 110px;
-  width: 100%;
-  height: 40%;
-  background:  rgba(0, 0, 0, 0.7);
-}
-// animation upp
-@keyframes upp {
-  from{
-    transform: translateY(0px);
-  }
-  to{
-    transform: translateY(-10px);
-  }
-}
-.fa{
-  animation: upp 1s ease-out infinite;
-  color: orangered;
-}
+

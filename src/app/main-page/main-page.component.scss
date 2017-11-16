@@ -2,7 +2,7 @@
 .wrapper-welcom{
   display: flex;
   flex-flow: column;
-  height: 100vh;
+  min-height: 100vh;
   background-image: url('./../../assets/img/mac.jpg');
   background-repeat: no-repeat;
   background-size: 100% 100%;

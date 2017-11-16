@@ -1,3 +1,4 @@
+@import '../../../assets/source/mixins/mixins.scss';
 .autorize{
   display: flex;
   justify-content: flex-end;
@@ -5,6 +6,9 @@
   padding-top: 10px;
   padding-right: 10px;
   margin-bottom: 100px;
+  @include phones{
+    margin-bottom: 50px;
+  }
   .autirize__btn{
     height: 40px;
     background: grey;

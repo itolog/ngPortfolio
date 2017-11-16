@@ -15,6 +15,7 @@ export class WelcomeAutorizeComponent implements OnInit {
   ngOnInit() {
     this.form = new FormGroup({
       'login' : new FormControl(null, [Validators.required]),
+      'check' : new FormControl(false, [Validators.requiredTrue]),
       'password' : new FormControl(null, [Validators.required, Validators.minLength(6)])
     });
   }

@@ -10,7 +10,4 @@ export class MapComponent implements OnInit {
 
   ngOnInit() {
   }
-  toUPP() {
-    window.scrollTo( 0, 0 );
-  }
 }

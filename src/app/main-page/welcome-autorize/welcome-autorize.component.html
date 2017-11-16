@@ -17,8 +17,8 @@
         placeholder="login">
       <span class="text-success" *ngIf="form.get('login').valid">Success message.</span>
         <span class="form-help-text" *ngIf="form.get('login').invalid && form.get('login').touched">
-          <span *ngIf="form.get('login')['errors']['required']">Имя не может быть пустым!</span>
-         </span>
+          <span *ngIf="form.get('login')['errors']['required']">Login не может быть пустым!</span>
+        </span>
     </div>
     <!-- pass -->
     <div class="welcome-autoriz__input-wrapp">
@@ -45,10 +45,18 @@
     </div>
     <!-- i am human -->
     <div class="welcome-autoriz__checkbox">
-      <input type="checkbox" name="checkbox" id="check" class="welcome-autoriz__input_checkbox">
+      <input
+        type="checkbox"
+        formControlName="check"
+        name="checkbox"
+        id="check"
+        class="welcome-autoriz__input_checkbox">
       <span class="welcome-autoriz__span">
-							<label for="check">Я человек</label>
-						</span>
+        <label for="check">Я человек</label>
+      </span>
+      <span class="form-help-text" *ngIf="form.get('check').invalid">
+          <span *ngIf="form.get('check')['errors']['required']">Вы точно не робот?</span>
+      </span>
     </div>
   </form>
   <!-- section btn welcome -->

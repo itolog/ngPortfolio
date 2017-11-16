@@ -18,4 +18,7 @@ export class FooterComponent implements OnInit {
   toMain() {
     this.router.navigate(['/']);
   }
+  toUPP() {
+    window.scrollTo( 0, 0 );
+  }
 }
