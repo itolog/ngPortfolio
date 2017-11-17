@@ -4,7 +4,8 @@
       Авторизуйтесь
     </h3>
   </div>
-  <form [formGroup]="form" (ngSubmit)="onSubmit()" class="welcome-autoriz__form">
+  <div class="message" *ngIf="message.text">{{message.text}}</div>
+  <form [formGroup]="form" class="welcome-autoriz__form">
     <!-- login -->
     <div class="welcome-autoriz__input-wrapp">
       <i class="welcome-autoriz__img fa fa-sign-in"></i>
@@ -67,7 +68,9 @@
       > На главную</button>
     </li>
     <li class="welcome-autoriz-btn__item">
-      <button class="welcome-autoriz-btn__item-btn" (click)="logIn()"
+      <button class="welcome-autoriz-btn__item-btn"
+              type="submit"
+              (click)="logIn()"
               [ngClass]="{'btn-err': form.invalid}"
       > Войти</button>
     </li>

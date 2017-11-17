@@ -70,10 +70,10 @@
 // animation upp
 @keyframes upp {
   from{
-    transform: translateY(0px);
+    transform: translate3d(0,0px,0);
   }
   to{
-    transform: translateY(-10px);
+    transform: translate3d(0,-10px,0);
   }
 }
 .fa{
