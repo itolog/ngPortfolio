@@ -6,6 +6,7 @@ import {MainPageComponent} from '../main-page.component';
 import { UserService } from './user.service';
 import { User } from '../../user';
 import { Message } from '../../shared/models/message.model';
+import { AuthService } from '../../shared/services/auth.service';
 
 @Component({
   selector: 'app-welcome-autorize',
@@ -16,13 +17,23 @@ export class WelcomeAutorizeComponent implements OnInit {
   form: FormGroup;
   user: User[] = [];
   message: Message;
+  localStorage = false;
   constructor(
     private hide: MainPageComponent,
     private router: Router,
-    private userService: UserService
+    private userService: UserService,
+    private authService: AuthService
   ) { }
   ngOnInit() {
+    // check User logIn or NOT
+    if (localStorage.getItem('dataUser')) {
+      this.localStorage = true;
+    } else {
+      this.localStorage = false;
+    }
+    // init msg
     this.message = new Message('danger', '');
+    // validation form
     this.form = new FormGroup({
       'login' : new FormControl(null, [Validators.required]),
       'check' : new FormControl(false, [Validators.requiredTrue]),
@@ -39,11 +50,15 @@ export class WelcomeAutorizeComponent implements OnInit {
   isVisibleFalse() {
     this.hide.isVisible = false;
   }
+  //  function LOGin
   logIn() {
     const formData = this.form.value;
     this.userService.getUser().subscribe((data) => {
      this.user  = data[0];
       if (this.user['login'] === formData.login && this.user['password'] === formData.password) {
+        this.message.text = '';
+        window.localStorage.setItem('dataUser', JSON.stringify(this.user));
+        this.authService.logIn();
         this.router.navigate(['/admin']);
       } else {
         this.showMessage({
@@ -53,4 +68,8 @@ export class WelcomeAutorizeComponent implements OnInit {
       }
     });
   }
+// function to Admin
+toAdmin() {
+  this.router.navigate(['/admin']);
+}
 }

@@ -69,10 +69,15 @@
     </li>
     <li class="welcome-autoriz-btn__item">
       <button class="welcome-autoriz-btn__item-btn"
+              *ngIf="!localStorage"
               type="submit"
               (click)="logIn()"
               [ngClass]="{'btn-err': form.invalid}"
-      > Войти</button>
+      >Войти впервые</button>
+      <button 
+            class="welcome-autoriz-btn__item-btn"
+            (click)="toAdmin()"
+            *ngIf="localStorage">Войти</button>
     </li>
   </ul>
 </section>

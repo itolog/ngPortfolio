@@ -17,6 +17,7 @@ import {SharedModule} from './shared/shared.module';
 import {AdminModule} from './admin/admin.module';
 import {WorksPageModule} from './works-page/works-page.module';
 import { UserService } from './main-page/welcome-autorize/user.service';
+import { AuthService } from './shared/services/auth.service';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { UserService } from './main-page/welcome-autorize/user.service';
     HttpClientModule
   ],
   providers: [
-    UserService
+    UserService,
+    AuthService
   ],
   bootstrap: [AppComponent]
 })

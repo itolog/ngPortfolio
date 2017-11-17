@@ -2,7 +2,11 @@
   <header class="header">
     <section class="header-top">
       <h1 class="header-top__h1">Панель администрироваия</h1>
-      <a routerLink="/" class="header-top__link">Вернутся на сайт</a>
+      <div class="menu">
+        <button class="btn-logout" (click)="logOut()">Выйти</button>
+        <a routerLink="/" class="header-top__link">Вернутся на сайт</a>
+      </div>
+      
     </section>
     <nav class="header-tab">
       <ul class="header-tab__menu">
