@@ -1,5 +1,7 @@
 import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {animate, state, style, transition, trigger} from '@angular/animations';
+import { Works } from '../../shared/models/works.model';
+import { HttpService } from '../../shared/services/http.service';
 
 @Component({
   selector: 'app-works-slider',
@@ -11,46 +13,27 @@ import {animate, state, style, transition, trigger} from '@angular/animations';
       state('start', style({
         opacity: 0
       })),
-      transition('start=> end', [
-        animate('1000ms')
-      ]),
       state('end', style({
           opacity: 1
         })),
-        transition('* <=> *', [
+        transition('start => end', [
           animate(1000)
         ])
     ])
   ]
 })
 export class WorksSliderComponent implements OnInit {
-  work: any = [
-    {name: 'PORTFOLIO ANGULAR',
-      id: 1,
-      img: './../../assets/img/pf.jpg',
-      href: 'http://neolife.orgfree.com/',
-      content: 'html css angular'
-    },
-    {name: 'two',
-      id: 2,
-      img: './../../assets/img/mac.jpg',
-      href: '',
-      content: ''
-    },
-    {name: 'threeeee',
-      id: 3,
-      img: '',
-      href: '',
-      content: ''
-    }
-  ];
-  state = '';
+  work: Works[];
+  state = 'start';
   id= 1;
-  constructor() { }
+  constructor(private worksServise: HttpService) { }
   ngOnInit() {
+    this.worksServise.getWorks()
+      .subscribe((data) => {
+        this.work = data['works'];
+      });
   }
   next() {
-     // this.state = 'end';
     this.id++;
     if (this.id > this.work.length) {
       this.id = 1;
@@ -58,7 +41,6 @@ export class WorksSliderComponent implements OnInit {
   }
   prev() {
     this.id--;
-     // this.state = 'prev';
     if (this.id <= 0) {
       this.id = this.work.length;
     }

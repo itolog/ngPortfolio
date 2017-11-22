@@ -3,10 +3,10 @@ import {Router} from '@angular/router';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 
 import {MainPageComponent} from '../main-page.component';
-import { UserService } from './user.service';
 import { User } from '../../user';
 import { Message } from '../../shared/models/message.model';
 import { AuthService } from '../../shared/services/auth.service';
+import { HttpService } from '../../shared/services/http.service';
 
 @Component({
   selector: 'app-welcome-autorize',
@@ -21,7 +21,7 @@ export class WelcomeAutorizeComponent implements OnInit {
   constructor(
     private hide: MainPageComponent,
     private router: Router,
-    private userService: UserService,
+    private userService: HttpService,
     private authService: AuthService
   ) { }
   ngOnInit() {
@@ -66,6 +66,11 @@ export class WelcomeAutorizeComponent implements OnInit {
           type: 'danger'
         });
       }
+    }, (error) => {
+      this.showMessage({
+        text: 'Server error!',
+        type: 'danger'
+      });
     });
   }
 // function to Admin

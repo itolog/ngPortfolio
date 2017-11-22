@@ -4,7 +4,9 @@
   flex-flow: column;
   width: 100%;
   min-height: 100vh;
-  background: url('./../../assets/img/mf.png') no-repeat 100% 100%;
+  background-image: url('./../../assets/img/mf.png');
+  background: no-repeat;
+  background-size: 100% 100%;
 }
 .content{
   display: flex;

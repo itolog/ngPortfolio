@@ -1,10 +1,24 @@
 <section class="blog">
   <h3 class="content__h3">Страница "Блог"</h3>
-  <form class="blog__form">
+  <form class="blog__form" [formGroup]="formBlog">
     <span class="blog__header">Добавить запись</span>
-    <input type="text" class="blog__input" placeholder="название">
-    <input type="date" class="blog__input" placeholder="дата">
-    <textarea name="blog" class="blog__area" cols="20" rows="10" placeholder="содержание"></textarea>
-    <button class="form__button">Добавить</button>
+    <input 
+          formControlName="name"
+          type="text" 
+          class="blog__input" 
+          placeholder="название">
+    <input 
+          formControlName="date"
+          type="date" 
+          class="blog__input" 
+          placeholder="дата">
+    <textarea 
+          formControlName="content"
+          name="blog" 
+          class="blog__area" 
+          cols="20" 
+          rows="10" 
+          placeholder="содержание"></textarea>
+    <button class="form__button" (click)="addPosts()">Добавить</button>
   </form>
 </section>

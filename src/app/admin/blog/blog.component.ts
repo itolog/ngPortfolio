@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-blog',
@@ -7,10 +8,18 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
   encapsulation: ViewEncapsulation.None
 })
 export class BlogComponent implements OnInit {
-
+  formBlog: FormGroup;
   constructor() { }
 
   ngOnInit() {
+    this.formBlog = new FormGroup({
+      'name' : new FormControl(null),
+      'content' : new FormControl(null),
+      'date' : new FormControl(null)
+    });
   }
-
+  addPosts() {
+    const formData = this.formBlog.value;
+    console.log(formData);
+  }
 }

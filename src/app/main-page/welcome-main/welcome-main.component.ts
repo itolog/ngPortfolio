@@ -10,7 +10,7 @@ import {animate, state, style, transition, trigger} from '@angular/animations';
       state('start', style({
         transform: 'rotateY(360deg)'
       })),
-      transition('void => start', animate(1500))
+      transition('void => start', animate(800))
     ])
   ]
 })

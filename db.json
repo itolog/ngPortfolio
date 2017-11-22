@@ -5,5 +5,28 @@
       "password": "itjob2017",
       "id": 1
     }
+  ],
+  "works": [
+    {
+      "name": "PORTFOLIO ANGULAR",
+      "id": 1,
+      "img": "./../../assets/img/pf.jpg",
+      "href": "http://neolife.orgfree.com/",
+      "content": "html css angular"
+    },
+    {
+      "name": "two",
+      "id": 2,
+      "img": "./../../assets/img/mac.jpg",
+      "href": "",
+      "content": ""
+    },
+    {
+      "name": "w",
+      "img": "./../../assets/img/hero.jpg",
+      "href": "w",
+      "content": "w",
+      "id": 3
+    }
   ]
 }

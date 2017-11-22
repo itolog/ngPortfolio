@@ -5,83 +5,43 @@
   <p class="skils__text">
     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum ullam, temporibus inventore vel officiis iste.
   </p>
-  <div class="skils__items">
-    <h3 class="skils__name">
-      Frontend
-    </h3>
-    <ul class="skils__items-ul">
-      <li class="skils__item">
-        <span class="skils__item-name">HTML5</span>
-        <svg class="circles" viewBox="0 0 110 110">
-          <circle r="45" cx="50%" cy="50%" fill="none" class="circle__first"/>
-          <circle r="45" cx="50%" cy="50%" fill="none" class="circle__second" transform="rotate(-90 55 55)"/>
-        </svg>
-      </li>
-      <li class="skils__item">
-        <span class="skils__item-name">CSS3</span>
-        <svg class="circles" viewBox="0 0 110 110">
-          <circle r="45" cx="50%" cy="50%" fill="none" class="circle__first"/>
-          <circle r="45" cx="50%" cy="50%" fill="none" class="circle__second" transform="rotate(-90 55 55)"/>
-        </svg>
-      </li>
-      <li class="skils__item">
-        <span class="skils__item-name">JS<br/>& Jquery</span>
-        <svg class="circles" viewBox="0 0 110 110">
-          <circle r="45" cx="50%" cy="50%" fill="none" class="circle__first"/>
-          <circle r="45" cx="50%" cy="50%" fill="none" class="circle__second" transform="rotate(-90 55 55)"/>
+  <!-- frontend -->
+  <div class="skils__items" #frontend *ngFor="let item of Frontend">
+    <h3 class="skils__name">{{item.title}}</h3>
+    <ul class="skils__items-ul" [@skillAnim]="animStatus">
+      <li class="skils__item"  *ngFor="let i of item.skill">
+        <span class="skils__item-name" >{{i}}</span>
+        <svg viewBox="0 0 110 110">
+            <rect x="5" y="5" width="80%" height="80%"
+                  fill="skyblue" stroke="steelblue" stroke-width="5"></rect>
         </svg>
       </li>
     </ul>
   </div>
-  <div class="skils__items">
-    <h3 class="skils__name">
-      Beckend
-    </h3>
-    <ul class="skils__items-ul">
-      <li class="skils__item">
-        <span class="skils__item-name">Node.js<br/>&npm</span>
-        <svg class="circles" viewBox="0 0 110 110">
-          <circle r="45" cx="50%" cy="50%" fill="none" class="circle__first"/>
-          <circle r="45" cx="50%" cy="50%" fill="none" class="circle__second" transform="rotate(-90 55 55)"/>
-        </svg>
-      </li>
-      <li class="skils__item">
-        <svg class="circles" viewBox="0 0 110 110">
-          <circle r="45" cx="50%" cy="50%" fill="none" class="circle__first"/>
-          <circle r="45" cx="50%" cy="50%" fill="none" class="circle__second" transform="rotate(-90 55 55)"/>
-        </svg>
-      </li>
-      <li class="skils__item">
-        <svg class="circles" viewBox="0 0 110 110">
-          <circle r="45" cx="50%" cy="50%" fill="none" class="circle__first"/>
-          <circle r="45" cx="50%" cy="50%" fill="none" class="circle__second" transform="rotate(-90 55 55)"/>
-        </svg>
-      </li>
-    </ul>
+  <!-- WORKFLOW -->
+  <div class="skils__items" #workflow *ngFor="let item of Workflow">
+      <h3 class="skils__name">{{item.title}}</h3>
+      <ul class="skils__items-ul" [@skillAnim]="animStatusW">
+        <li class="skils__item" *ngFor="let i of item.skill">
+          <span class="skils__item-name" >{{i}}</span>
+          <svg viewBox="0 0 110 110">
+              <rect x="5" y="5" width="80%" height="80%"
+                    fill="skyblue" stroke="steelblue" stroke-width="5"></rect>
+          </svg>
+        </li>
+      </ul>
   </div>
-  <div class="skils__items">
-    <h3 class="skils__name">
-      WorkFlow
-    </h3>
-    <ul class="skils__items-ul">
-      <li class="skils__item">
-        <svg class="circles" viewBox="0 0 110 110">
-          <circle r="45" cx="50%" cy="50%" fill="none" class="circle__first"/>
-          <circle r="45" cx="50%" cy="50%" fill="none" class="circle__second" transform="rotate(-90 55 55)"/>
-        </svg>
-      </li>
-      <li class="skils__item">
-        <svg class="circles" viewBox="0 0 110 110">
-          <circle r="45" cx="50%" cy="50%" fill="none" class="circle__first"/>
-          <circle r="45" cx="50%" cy="50%" fill="none" class="circle__second" transform="rotate(-90 55 55)"/>
-        </svg>
-      </li>
-      <li class="skils__item">
-        <svg class="circles" viewBox="0 0 110 110">
-          <circle r="45" cx="50%" cy="50%" fill="none" class="circle__first"/>
-          <circle r="45" cx="50%" cy="50%" fill="none" class="circle__second" transform="rotate(-90 55 55)"/>
-        </svg>
-      </li>
-    </ul>
+  <!-- BECKEND -->
+  <div class="skils__items" #beckend *ngFor="let item of Beckend">
+      <h3 class="skils__name">{{item.title}}</h3>
+      <ul class="skils__items-ul" [@skillAnim]="animStatusB">
+        <li class="skils__item" *ngFor="let i of item.skill">
+          <span class="skils__item-name" >{{i}}</span>
+          <svg viewBox="0 0 110 110">
+              <rect x="5" y="5" width="80%" height="80%"
+                    fill="skyblue" stroke="steelblue" stroke-width="5"></rect>
+          </svg>
+        </li>
+      </ul>
   </div>
 </section>
