@@ -1,0 +1,27 @@
+<section class="works">
+  <h3 class="content__h3">Страница "Мои работы"</h3>
+  <form class="form" enctype="multipart/form-data" [formGroup]="form">
+    <p class="form__header">Добавить работу</p>
+    <input 
+          formControlName="name"
+          type="text" 
+          class="form__input-text" 
+          placeholder="название проэкта">
+    <input 
+          formControlName="content"
+          type="text"
+          class="form__input-text" 
+          placeholder="технологии">
+    <input 
+          formControlName="href"
+          type="text" 
+          class="form__input-text" 
+          placeholder="Ссылка на сайт">
+    <label for="input">
+      <input type="file" accept="image/*" id="input" name="img" formControlName="img" (change)="change($event)">
+      <i class="fa fa-file-image-o fa-2x" aria-hidden="true"></i>
+      <span class="input__span">Загрузите картинку</span>
+    </label>
+    <button class="form__button" (click)="addWorks()">Добавить</button>
+  </form>
+</section>

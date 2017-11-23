@@ -1,0 +1,59 @@
+@import '../../../assets/source/mixins/mixins.scss';
+.works{
+  display: flex;
+  align-self: center;
+  flex-flow: column;
+}
+.content__h3{
+  color: white;
+  margin-bottom: 20px;
+}
+.form__header{
+  color: white;
+}
+.form{
+  display: flex;
+  flex-flow: column wrap;
+  input{
+    margin-bottom: 20px;
+  }
+}
+.form__header{
+  margin-bottom: 20px;
+}
+.form__input-text{
+  width: 350px;
+  height: 30px;
+  border-radius: 10px;
+  border: 2px solid grey;
+  text-align: center;
+  @include phones {
+    width: 90%;
+  }
+}
+#input{
+  display: none;
+  cursor: pointer;
+}
+.fa-file-image-o{
+  color: lightseagreen;
+  margin-right: 10px;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+.input__span{
+  color: lightseagreen;
+}
+.form__button{
+  width: 100px;
+  height: 50px;
+  color: white;
+  background: lightseagreen;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  &:hover{
+    border: 3px double black;
+    box-shadow: 0px 0px 48px 9px rgba(125,227,227,1);
+  }
+}

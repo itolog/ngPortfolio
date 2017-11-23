@@ -8,14 +8,18 @@ import {animate, state, style, transition, trigger} from '@angular/animations';
   animations: [
     trigger('skillAnim', [
       state('start', style({
-        transform: 'translate3d(100%, 0, 0)',
-        opacity: 0
+        // transform: 'translate3d(100%, 0, 0)',
+        // opacity: 0
+        strokeDasharray: 1200,
+        strokeDashoffset: 1200
       })),
       state('end', style({
-        transform: 'translate3d(0, 0, 0)',
-        opacity: 1
+        // transform: 'translate3d(0, 0, 0)',
+        // opacity: 1
+        // strokeDasharray: 1200,
+        strokeDashoffset: 0
       })),
-      transition('start => end', animate(3000))
+      transition('start <=> end', animate(7000))
     ])
   ]
 })
@@ -29,41 +33,41 @@ export class SkillsComponent implements OnInit, OnDestroy {
   Frontend = [
     {
       'title': 'Frontend',
-      'skill': ['html5', 'css3', 'js'],
+      'skill': ['HTML 5', 'CSS 3', 'JS'],
       'id': 1
     }
   ];
   Workflow = [
     {
       'title': 'Workflow',
-      'skill': ['gulp', 'sass', 'BEM'],
+      'skill': ['GULP', 'SASS', 'BEM'],
       'id': 1
     }
   ];
   Beckend = [
     {
       'title': 'Beckend',
-      'skill': ['nodeJS', 'npm'],
+      'skill': ['nodeJS', 'NPM'],
       'id': 1
     }
   ];
   constructor() { }
-
+  y = window.scrollY;
   ngOnInit() {
     window.addEventListener('scroll', this.scroll, true);
   }
   ngOnDestroy() {
     window.removeEventListener('scroll', this.scroll, true);
   }
-  scroll = (e: Event): void => {
-    const topScroll = e.srcElement['scrollingElement'].scrollTop;
+  scroll = (): void => {
+    const topScroll = window.scrollY  - 120;
     const frontTop = this.frontEl.nativeElement.offsetTop;
     const beckTop = this.beckEl.nativeElement.offsetTop;
     const workfTop = this.workfEl.nativeElement.offsetTop;
     if (topScroll >= frontTop) {
       this.animStatus = 'end';
     }
-    if (topScroll >= beckTop) {
+    if (topScroll > beckTop) {
       this.animStatusB = 'end';
     }
     if (topScroll >= workfTop) {
