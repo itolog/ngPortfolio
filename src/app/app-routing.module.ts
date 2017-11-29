@@ -5,11 +5,13 @@ import { MainPageComponent } from './main-page/main-page.component';
 import { AboutPageComponent } from './about-page/about-page.component';
 import { AdminComponent } from './admin/admin.component';
 import { WorksPageComponent } from './works-page/works-page.component';
+import { BlogPageComponent } from './blog-page/blog-page.component';
 
 const appRoutes: Routes = [
   {path: 'about', component: AboutPageComponent},
   {path: 'admin', component: AdminComponent},
   {path: 'works', component: WorksPageComponent},
+  {path: 'blog', component: BlogPageComponent},
   {path: '', component: MainPageComponent}
 ];
 

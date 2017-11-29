@@ -7,13 +7,13 @@ import { Works } from '../models/works.model';
 @Injectable()
 export class HttpService {
   headers = new HttpHeaders({
-    'Access-Control-Allow-Origin': 'http://neolife.orgfree.com',
+    'Access-Control-Allow-Origin': '*',
     'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
     'Content-Type': 'application/json',
     'Access-Control-Allow-Credentials': 'true'
   });
   constructor(private http: HttpClient) { }
-    // dev http://localhost:3000/users
+    // dev http://localhost:3000/
     // prod http://neolife.orgfree.com/
     // GET WORKS
    setUrl(val: string = '') {

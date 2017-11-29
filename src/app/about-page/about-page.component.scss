@@ -2,6 +2,7 @@
 .main-about{
   display: flex;
   position: relative;
+  background: #20232A;
   @include tablets {
     flex-flow: column;
   }

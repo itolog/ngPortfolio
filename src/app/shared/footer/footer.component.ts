@@ -12,12 +12,6 @@ export class FooterComponent implements OnInit {
 
   ngOnInit() {
   }
-  toWorks() {
-    this.router.navigate(['/works']);
-  }
-  toMain() {
-    this.router.navigate(['/']);
-  }
   toUPP() {
     window.scrollTo( 0, 0 );
   }

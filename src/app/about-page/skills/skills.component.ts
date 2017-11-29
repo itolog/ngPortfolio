@@ -8,18 +8,20 @@ import {animate, state, style, transition, trigger} from '@angular/animations';
   animations: [
     trigger('skillAnim', [
       state('start', style({
-        // transform: 'translate3d(100%, 0, 0)',
-        // opacity: 0
+        opacity: 0,
         strokeDasharray: 1200,
         strokeDashoffset: 1200
       })),
       state('end', style({
-        // transform: 'translate3d(0, 0, 0)',
-        // opacity: 1
-        // strokeDasharray: 1200,
+        strokeDasharray: 1200,
         strokeDashoffset: 0
       })),
-      transition('start <=> end', animate(7000))
+      transition('start => end', [
+        animate(1400, style({
+          opacity: 1
+        })),
+        animate(800)
+      ])
     ])
   ]
 })

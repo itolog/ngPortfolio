@@ -1,7 +1,7 @@
 <header class="header">
-  <!--<div class="bg">-->
-    <!--<img src="./../assets/img/water.jpg" alt="water" class="bg__img"/>-->
-  <!--</div>-->
+  <!-- <div class="bg">
+    <img src="./../../../assets/img/web-dev.jpg" alt="water" class="bg__img"/>
+  </div> -->
   <section class="navigation">
     <!-- social link -->
     <app-socia-link></app-socia-link>
@@ -28,16 +28,16 @@
   <div class="modal-menu__right"></div>
   <ul class="modal-menu__nav">
     <li class="modal-menu__nav-item">
-      <a class="modal-menu__link" (click)="toMain()">На главную</a>
+      <a class="modal-menu__link" routerLink="">На главную</a>
     </li>
     <li class="modal-menu__nav-item">
-      <a class="modal-menu__link" (click)="toWorks()">Мои работы</a>
+      <a class="modal-menu__link" routerLink="/works" routerLinkActive="active">Мои работы</a>
     </li>
     <li class="modal-menu__nav-item">
-      <a class="modal-menu__link" (click)="toAbout()">Обо мне</a>
+      <a class="modal-menu__link" routerLink="/about" routerLinkActive="active">Обо мне</a>
     </li>
     <li class="modal-menu__nav-item">
-      <a class="modal-menu__link" href="">Блог</a>
+      <a class="modal-menu__link" routerLink="/blog" routerLinkActive="active">Блог</a>
     </li>
   </ul>
 </div>

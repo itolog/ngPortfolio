@@ -13,6 +13,7 @@ import { HttpService } from './shared/services/http.service';
 import { AboutPageModule } from './about-page/about-page.module';
 import { AdminModule } from './admin/admin.module';
 import { WorksPageModule } from './works-page/works-page.module';
+import { BlogPageModule } from './blog-page/blog-page.module';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { WorksPageModule } from './works-page/works-page.module';
     MainPageModule,
     AboutPageModule,
     AdminModule,
-    WorksPageModule
+    WorksPageModule,
+    BlogPageModule
   ],
   providers: [
     HttpService,

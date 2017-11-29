@@ -4,7 +4,8 @@ import {CommonModule} from '@angular/common';
 import {SociaLinkComponent} from './socia-link/socia-link.component';
 import {HeroComponent} from './hero/hero.component';
 import {HeaderComponent} from './header/header.component';
-import {FooterComponent} from './footer/footer.component';
+import { FooterComponent } from './footer/footer.component';
+import { FooterRoutingModule } from './footer/footer-routing.module';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import {FooterComponent} from './footer/footer.component';
     FooterComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    FooterRoutingModule
   ],
   exports: [
     SociaLinkComponent,
