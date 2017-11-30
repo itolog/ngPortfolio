@@ -1,5 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import {Router} from '@angular/router';
 
 import {modalAnim} from '../animations/modal.animation';
 
@@ -12,17 +11,8 @@ import {modalAnim} from '../animations/modal.animation';
 export class HeaderComponent implements OnInit {
   isVisible = true;
   modalStatus = 'hide';
-  constructor(private router: Router) {}
+  constructor() {}
   ngOnInit() {
-  }
-  toMain() {
-    this.router.navigate(['/']);
-  }
-  toWorks() {
-    this.router.navigate(['/works']);
-  }
-  toAbout() {
-    this.router.navigate(['/about']);
   }
   oneScrollDown() {
     window.scrollBy(0, window.innerHeight);

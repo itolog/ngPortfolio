@@ -7,6 +7,14 @@
   background-repeat: no-repeat;
   background-size: 100% 100%;
 }
+.paralax-wrap{
+  position: absolute;
+  top: 3%;
+  left: 5%;
+  .fa-code{
+    color: lime;
+}
+}
 //section content
 .welcome-content{
   display: flex;

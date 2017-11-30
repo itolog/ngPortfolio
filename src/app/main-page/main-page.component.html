@@ -1,6 +1,9 @@
 <div class="wrapper-welcom">
+  <div class="paralax-wrap">
+    <i class="fa fa-code fa-3x" aria-hidden="true" #content></i>
+  </div>
   <app-autorize></app-autorize>
-  <div class="welcome-content" >
+  <div class="welcome-content">
     <app-welcome-main *ngIf="!isVisible"></app-welcome-main>
     <app-welcome-autorize *ngIf="isVisible"></app-welcome-autorize>
   </div>
