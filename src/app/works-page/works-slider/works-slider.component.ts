@@ -1,5 +1,4 @@
 import {Component, OnInit, ViewEncapsulation} from '@angular/core';
-import {animate, state, style, transition, trigger} from '@angular/animations';
 import { Works } from '../../shared/models/works.model';
 import { HttpService } from '../../shared/services/http.service';
 
@@ -7,30 +6,16 @@ import { HttpService } from '../../shared/services/http.service';
   selector: 'app-works-slider',
   templateUrl: './works-slider.component.html',
   styleUrls: ['./works-slider.component.scss'],
-  encapsulation: ViewEncapsulation.None,
-  animations: [
-    trigger('slider', [
-      state('start', style({
-        opacity: 0
-      })),
-      state('end', style({
-          opacity: 1
-        })),
-        transition('start => end', [
-          animate(1000)
-        ])
-    ])
-  ]
+  encapsulation: ViewEncapsulation.None
 })
 export class WorksSliderComponent implements OnInit {
   work: Works[];
-  state = 'start';
   id= 1;
   constructor(private worksServise: HttpService) { }
   ngOnInit() {
     this.worksServise.getWorks()
       .subscribe((data) => {
-        this.work = data['works'];
+        this.work = data[1];
       });
   }
   next() {
@@ -38,6 +23,8 @@ export class WorksSliderComponent implements OnInit {
     if (this.id > this.work.length) {
       this.id = 1;
     }
+    
+    console.log(this.work);
   }
   prev() {
     this.id--;
