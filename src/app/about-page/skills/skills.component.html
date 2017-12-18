@@ -8,7 +8,7 @@
   <!-- frontend -->
   <div class="skils__items" #frontend *ngFor="let item of Frontend">
     <h3 class="skils__name">{{item.title}}</h3>
-    <ul class="skils__items-ul" [@skillAnim]="animStatus">
+    <ul class="skils__items-ul">
       <li class="skils__item"  *ngFor="let i of item.skill">
         <span class="skils__item-name" >{{i}}</span>
         <svg viewBox="0 0 110 110" class="svg-skills">
@@ -20,7 +20,7 @@
   <!-- WORKFLOW -->
   <div class="skils__items" #workflow *ngFor="let item of Workflow">
       <h3 class="skils__name">{{item.title}}</h3>
-      <ul class="skils__items-ul" [@skillAnim]="animStatusW">
+      <ul class="skils__items-ul">
         <li class="skils__item" *ngFor="let i of item.skill">
           <span class="skils__item-name" >{{i}}</span>
           <svg viewBox="0 0 110 110" class="svg-skills">
@@ -32,7 +32,7 @@
   <!-- BECKEND -->
   <div class="skils__items" #beckend *ngFor="let item of Beckend">
       <h3 class="skils__name">{{item.title}}</h3>
-      <ul class="skils__items-ul" [@skillAnim]="animStatusB">
+      <ul class="skils__items-ul">
         <li class="skils__item" *ngFor="let i of item.skill">
           <span class="skils__item-name" >{{i}}</span>
           <svg viewBox="0 0 110 110" class="svg-skills">

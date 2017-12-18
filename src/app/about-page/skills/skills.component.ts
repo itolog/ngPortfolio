@@ -1,34 +1,11 @@
-import { Component, OnInit, ViewChild, OnDestroy, ElementRef } from '@angular/core';
-import {animate, state, style, transition, trigger} from '@angular/animations';
+import {Component, OnInit, ViewChild, OnDestroy, ElementRef, Renderer2} from '@angular/core';
 
 @Component({
   selector: 'app-skills',
   templateUrl: './skills.component.html',
-  styleUrls: ['./skills.component.scss'],
-  animations: [
-    trigger('skillAnim', [
-      state('start', style({
-        opacity: 0,
-        strokeDasharray: 1200,
-        strokeDashoffset: 1200
-      })),
-      state('end', style({
-        strokeDasharray: 1200,
-        strokeDashoffset: 0
-      })),
-      transition('start => end', [
-        animate(1400, style({
-          opacity: 1
-        })),
-        animate(800)
-      ])
-    ])
-  ]
+  styleUrls: ['./skills.component.scss']
 })
 export class SkillsComponent implements OnInit, OnDestroy {
-  animStatus = 'start';
-  animStatusB = 'start';
-  animStatusW = 'start';
   @ViewChild('frontend') frontEl: ElementRef;
   @ViewChild('beckend') beckEl: ElementRef;
   @ViewChild('workflow') workfEl: ElementRef;
@@ -53,8 +30,7 @@ export class SkillsComponent implements OnInit, OnDestroy {
       'id': 1
     }
   ];
-  constructor() { }
-  y = window.scrollY;
+  constructor(private render: Renderer2) { }
   ngOnInit() {
     window.addEventListener('scroll', this.scroll, true);
   }
@@ -67,13 +43,13 @@ export class SkillsComponent implements OnInit, OnDestroy {
     const beckTop = this.beckEl.nativeElement.offsetTop;
     const workfTop = this.workfEl.nativeElement.offsetTop;
     if (topScroll >= frontTop) {
-      this.animStatus = 'end';
+     this.render.addClass(this.frontEl.nativeElement, 'flipInY');
     }
     if (topScroll > beckTop) {
-      this.animStatusB = 'end';
+      this.render.addClass(this.beckEl.nativeElement, 'zoomInLeft');
     }
     if (topScroll >= workfTop) {
-      this.animStatusW = 'end';
+      this.render.addClass(this.workfEl.nativeElement, 'bounceInRight');
     }
   }
 }

@@ -14,8 +14,8 @@ export class HeroComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.listenerFn = this.render.listen(window, 'scroll', (e) => {
       const strafe = window.pageYOffset / -3 + '%';
-      this.render.setStyle(this.hero.nativeElement, 'transform', `translate3d( 0,${strafe}, 0)`);
-      this.render.setStyle(this.info.nativeElement, 'transform', `translate3d(${strafe}, 0, 0)`);
+      this.render.setStyle(this.hero.nativeElement, 'transform', `translateY(${strafe})`);
+      this.render.setStyle(this.info.nativeElement, 'transform', `translateX(${strafe})`);
     });
   }
   ngOnDestroy() {

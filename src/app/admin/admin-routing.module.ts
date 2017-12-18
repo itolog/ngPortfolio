@@ -9,6 +9,7 @@ import { WorkComponent } from './work/work.component';
 
 const route: Routes = [
   {path: 'admin', component: AdminComponent, children: [
+    // {path: 'admin', pathMatch: 'full', redirectTo: 'blog'},
     {path: 'work', component: WorkComponent},
     {path: 'blog', component: BlogComponent}
   ]},

@@ -20,7 +20,7 @@ export class HttpService {
       return 'http://localhost:3000/' + val;
     }
   getWorks(): Observable<any> {
-    return this.http.get(this.setUrl('db'), {
+    return this.http.get(this.setUrl('db.json'), {
       headers: this.headers
     });
   }
@@ -38,7 +38,7 @@ export class HttpService {
   }
   // GET USERS
   getUser(): Observable<any> {
-    return this.http.get(this.setUrl('users'), {
+    return this.http.get(this.setUrl('db.json'), {
       headers : this.headers
     });
   }
