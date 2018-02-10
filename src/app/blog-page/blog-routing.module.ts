@@ -4,7 +4,7 @@ import {RouterModule, Routes} from '@angular/router';
 import { BlogPageComponent } from './blog-page.component';
 
 const route: Routes = [
-  {path: '', component: BlogPageComponent},
+  {path: 'blog', component: BlogPageComponent},
 ];
 @NgModule({
   imports: [
@@ -14,4 +14,4 @@ const route: Routes = [
     RouterModule
   ]
 })
-export class BlogRoutingmodule {}
+export class BlogRoutingModule {}

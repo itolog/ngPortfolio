@@ -22,6 +22,11 @@
       <i class="fa fa-file-image-o fa-2x" aria-hidden="true"></i>
       <span class="input__span">Загрузите картинку</span>
     </label>
-    <button class="form__button" (click)="addWorks()">Добавить</button>
+    <!-- buttons -->
+    <div class="btn__grid">
+      <button class="form__button" (click)="addWorks()">Добавить</button>
+      <button type="reset" class="form__button">Clear form</button>
+    </div>
+    <span class="send" *ngIf="send">done !!!</span>
   </form>
 </section>

@@ -3,12 +3,12 @@ import { NgModule } from '@angular/core';
 
 import { WorksPageComponent } from './works-page.component';
 
-const routes: Routes = [
+const route: Routes = [
   { path: 'works', component: WorksPageComponent }
 ];
 
 @NgModule({
-  imports: [RouterModule.forChild(routes)],
+  imports: [RouterModule.forChild(route)],
   exports: [RouterModule]
 })
-export class FeatureRoutingModule {}
+export class WorksPageRouting {}

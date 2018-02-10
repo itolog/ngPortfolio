@@ -1,8 +1,8 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { AngularFireDatabase } from 'angularfire2/database';
 
 import { Works } from '../../shared/models/works.model';
-import { HttpService } from '../../shared/services/http.service';
 
 @Component({
   selector: 'app-work',
@@ -14,7 +14,16 @@ export class WorkComponent implements OnInit {
   form: FormGroup;
   fileSrc: string;
   work: Works;
-  constructor(private httpService: HttpService) { }
+  send = false;
+  workId: number;
+  file;
+
+  constructor(public db: AngularFireDatabase) {
+    // Получаем все работы из базы даных
+      db.list<Works>('/works').valueChanges().subscribe(val => {
+        this.workId = val.length;
+      });
+   }
 
   ngOnInit() {
     this.form = new FormGroup({
@@ -24,17 +33,37 @@ export class WorkComponent implements OnInit {
       'img' : new FormControl(null)
     });
   }
+  // function show Alert Done
+  private showMessage() {
+    this.send = true;
+    window.setTimeout(() => {
+      this.send = false;
+    }, 5000);
+  }
+
   addWorks() {
     const formData = this.form.value;
-    formData.img = './../../assets/img/' + this.fileSrc;
-     console.log(formData);
-    //  добавлени работы
-    this.httpService.addWork(formData)
-      .subscribe((val) => {
-        console.log(val);
-      });
+    // Добавляем изображение в базу
+    formData.img =  this.fileSrc;
+    formData.id = this.workId + 1;
+     //  добавлени работы
+    this.db.list<Works>('works', ref => ref.orderByKey()).push(formData);
+
+    this.showMessage();
   }
+  // Получаем изибражение
   change(e: Event) {
-     this.fileSrc = e.srcElement['files'][0].name;
+    const file = e.srcElement['files'][0];
+    const myReader = new FileReader();
+
+    myReader.onloadend = () => {
+      this.fileSrc = myReader.result;
+    };
+
+    if (file) {
+      myReader.readAsDataURL(file);
+    } else {
+      this.fileSrc = '';
+    }
   }
 }

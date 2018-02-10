@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import {Router} from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
+import { AngularFireDatabase } from 'angularfire2/database';
 
 import {MainPageComponent} from '../main-page.component';
 import { User } from '../../user';
 import { Message } from '../../shared/models/message.model';
 import { AuthService } from '../../shared/services/auth.service';
-import { HttpService } from '../../shared/services/http.service';
 
 @Component({
   selector: 'app-welcome-autorize',
@@ -21,9 +21,19 @@ export class WelcomeAutorizeComponent implements OnInit {
   constructor(
     private hide: MainPageComponent,
     private router: Router,
-    private userService: HttpService,
-    private authService: AuthService
-  ) { }
+    private route: ActivatedRoute,
+    private authService: AuthService,
+    db: AngularFireDatabase
+  ) {
+      db.list<User>('/users').valueChanges().subscribe(val => {
+        this.user = val;
+      }, err => {
+        this.showMessage({
+          text: 'Server error!',
+          type: 'danger'
+        });
+      });
+   }
   ngOnInit() {
     // check User logIn or NOT
     if (localStorage.getItem('dataUser')) {
@@ -53,9 +63,7 @@ export class WelcomeAutorizeComponent implements OnInit {
   //  function LOGin
   logIn() {
     const formData = this.form.value;
-    this.userService.getUser().subscribe((data) => {
-     this.user  = data[0];
-      if (this.user['login'] === formData.login && this.user['password'] === formData.password) {
+      if (this.user[0].login === formData.login && this.user[0].password === formData.password) {
         this.message.text = '';
         window.localStorage.setItem('dataUser', JSON.stringify(this.user));
         this.authService.logIn();
@@ -66,15 +74,9 @@ export class WelcomeAutorizeComponent implements OnInit {
           type: 'danger'
         });
       }
-    }, (error) => {
-      this.showMessage({
-        text: 'Server error!',
-        type: 'danger'
-      });
-    });
   }
 // function to Admin
 toAdmin() {
-  this.router.navigate(['/admin']);
+  this.router.navigate(['/admin'], {relativeTo: this.route});
 }
 }

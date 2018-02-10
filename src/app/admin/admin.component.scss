@@ -17,6 +17,9 @@
   border-radius: 5px;
   opacity: 0.8;
   width: 80%;
+  @include phones{
+    width: 100%;
+  }
 }
 .header{
   display: flex;

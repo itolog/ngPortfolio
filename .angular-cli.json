@@ -22,6 +22,11 @@
         "../node_modules/normalize.css/normalize.css",
         "styles.css"
       ],
+      "stylePreprocessorOptions": {
+        "includePaths": [
+          "assets/source"
+        ]
+      },
       "scripts": [],
       "environmentSource": "environments/environment.ts",
       "environments": {

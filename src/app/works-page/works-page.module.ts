@@ -6,7 +6,7 @@ import {SharedModule} from '../shared/shared.module';
 import { WorksSliderComponent } from './works-slider/works-slider.component';
 import { WriteMeComponent } from './write-me/write-me.component';
 import {ReactiveFormsModule} from '@angular/forms';
-import { FeatureRoutingModule } from './works-page.routing';
+import { WorksPageRouting } from './works-page.routing.module';
 
 
 
@@ -20,7 +20,7 @@ import { FeatureRoutingModule } from './works-page.routing';
     CommonModule,
     SharedModule,
     ReactiveFormsModule,
-    FeatureRoutingModule
+    WorksPageRouting
   ]
 })
 export class WorksPageModule {}

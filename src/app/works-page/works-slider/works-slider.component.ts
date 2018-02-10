@@ -1,6 +1,6 @@
 import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import { Works } from '../../shared/models/works.model';
-import { HttpService } from '../../shared/services/http.service';
+import { AngularFireDatabase } from 'angularfire2/database';
 
 @Component({
   selector: 'app-works-slider',
@@ -9,22 +9,25 @@ import { HttpService } from '../../shared/services/http.service';
   encapsulation: ViewEncapsulation.None
 })
 export class WorksSliderComponent implements OnInit {
-  work: Works[];
+  work;
   id= 1;
-  constructor(private worksServise: HttpService) { }
+  constructor(db: AngularFireDatabase) {
+      db.list<Works>('/works').valueChanges().subscribe(val => {
+      this.work = val;
+    });
+   }
   ngOnInit() {
-    this.worksServise.getWorks()
-      .subscribe((data) => {
-        this.work = data[1];
-      });
+    // this.worksServise.getWorks()
+    //   .subscribe((data) => {
+    //     // console.log(data);
+    //    this.work = data;
+    //   });
   }
   next() {
     this.id++;
     if (this.id > this.work.length) {
       this.id = 1;
     }
-    
-    console.log(this.work);
   }
   prev() {
     this.id--;

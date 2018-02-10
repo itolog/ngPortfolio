@@ -13,15 +13,15 @@ export class HttpService {
     'Access-Control-Allow-Credentials': 'true'
   });
   constructor(private http: HttpClient) { }
-    // dev http://localhost:3000/
-    // prod http://neolife.orgfree.com/
+    // dev http://localhost:3000/db
+    // prod https://itologjs.000webhostapp.com/db.json
     // GET WORKS
-   setUrl(val: string = '') {
+   setUrl(val = '') {
       return 'http://localhost:3000/' + val;
     }
-  getWorks(): Observable<any> {
-    return this.http.get(this.setUrl('db.json'), {
-      headers: this.headers
+    getWorks(): Observable<any> {
+      return this.http.get(this.setUrl('jobs'), {
+        headers: this.headers
     });
   }
   // ADD WORK
@@ -32,13 +32,13 @@ export class HttpService {
       href: work.href,
       content: work.content
     };
-    return this.http.post(this.setUrl('works'), data, {
+    return this.http.post(this.setUrl('jobs'), data, {
       headers: this.headers
     });
   }
   // GET USERS
   getUser(): Observable<any> {
-    return this.http.get(this.setUrl('db.json'), {
+    return this.http.get(this.setUrl('users'), {
       headers : this.headers
     });
   }
