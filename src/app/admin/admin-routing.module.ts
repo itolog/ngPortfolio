@@ -4,11 +4,13 @@ import {RouterModule, Routes} from '@angular/router';
 import {AdminComponent} from './admin.component';
 import {BlogComponent} from './blog/blog.component';
 import { WorkComponent } from './work/work.component';
+import { SkilsComponent } from './skils/skils.component';
 
 
 const route: Routes = [
   {path: 'admin', component: AdminComponent, children: [
     {path: 'work', component: WorkComponent},
+    {path: 'skils', component: SkilsComponent},
     {path: 'blog', component: BlogComponent}
   ]},
 ];

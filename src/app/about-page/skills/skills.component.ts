@@ -1,4 +1,5 @@
 import {Component, OnInit, ViewChild, OnDestroy, ElementRef, Renderer2} from '@angular/core';
+import { AngularFireDatabase } from 'angularfire2/database';
 
 @Component({
   selector: 'app-skills',
@@ -12,25 +13,35 @@ export class SkillsComponent implements OnInit, OnDestroy {
   Frontend = [
     {
       'title': 'Frontend',
-      'skill': ['HTML 5', 'CSS 3', 'JS'],
+      'skill': [],
       'id': 1
     }
   ];
   Workflow = [
     {
       'title': 'Workflow',
-      'skill': ['GULP', 'SASS', 'BEM'],
+      'skill': [],
       'id': 1
     }
   ];
   Beckend = [
     {
       'title': 'Beckend',
-      'skill': ['nodeJS', 'NPM'],
+      'skill': [],
       'id': 1
     }
   ];
-  constructor(private render: Renderer2) { }
+  constructor(private render: Renderer2, db: AngularFireDatabase) { 
+    db.list('/frontend').valueChanges().subscribe(val => {
+      this.Frontend[0]['skill'] = val;
+    });
+    db.list('/workflow').valueChanges().subscribe(val => {
+      this.Workflow[0]['skill'] = val;
+    });
+    db.list('/backend').valueChanges().subscribe(val => {
+      this.Beckend[0]['skill'] = val;
+    });
+  }
   ngOnInit() {
     window.addEventListener('scroll', this.scroll, true);
   }

@@ -1,7 +1,7 @@
 <section class="write">
   <form class="write--form" [formGroup]="form" (ngSubmit)="onSubmit()">
     <h2 class="write--form__title">Связатся со мной</h2>
-    <!--name ----------------------->
+    <!--name -->
     <input
       type="text"
       formControlName="name"
@@ -11,7 +11,7 @@
     <span class="form-help-text" *ngIf="form.get('name').invalid && form.get('name').touched">
       <span *ngIf="form.get('name')['errors']['required']">Имя не может быть пустым!</span>
     </span>
-    <!--email  --------------->
+   <!-- Email -->
     <input
       type="email"
       formControlName="email"

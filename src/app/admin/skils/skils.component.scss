@@ -1,0 +1,63 @@
+.skils{
+  display: flex;
+  flex-flow: column;
+  color: white;
+}
+h2,h3{
+  text-align: center;
+  margin-bottom: 10px;
+}
+.skils__li{
+  display: flex;
+  justify-content: space-between;
+  padding: 5px;
+  margin-bottom: 2px;
+  background: #350303;
+  span{
+    color: whitesmoke;
+  }
+  &:hover{
+    background: lighten(black, 40%);
+  }
+}
+.fa-trash{
+  cursor: pointer;
+  &:hover{
+    color: #d00f31;
+  }
+}
+// ADD SKILL
+.add-skill__form{
+  width: 100%;
+}
+.add-skill{
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  margin-bottom: 30px;
+}
+.add-skill__select{
+  margin-bottom: 10px;
+  width: 100%;
+  height: 40px;
+}
+.add-skill__input{
+  width: 100%;
+  height: 50px;
+  text-align: center;
+  color: black;
+  border: 4px solid grey;
+  margin-bottom: 15px;
+}
+.add-skill__btn{
+  width: 100%;
+  padding: 10px;
+  background: black;
+  color: wheat;
+  cursor: pointer;
+  &:hover{
+    transition: 1s;
+    color:black;
+    background: wheat;
+  }
+}

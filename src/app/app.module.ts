@@ -13,10 +13,10 @@ import {MainPageModule} from './main-page/main-page.module';
 import {SharedModule} from './shared/shared.module';
 import { AuthService } from './shared/services/auth.service';
 import { HttpService } from './shared/services/http.service';
-// import { AboutPageModule } from './about-page/about-page.module';
-// import { AdminModule } from './admin/admin.module';
-// import { WorksPageModule } from './works-page/works-page.module';
-// import { BlogPageModule } from './blog-page/blog-page.module';
+import { AboutPageModule } from './about-page/about-page.module';
+import { AdminModule } from './admin/admin.module';
+import { WorksPageModule } from './works-page/works-page.module';
+import { BlogPageModule } from './blog-page/blog-page.module';
 
 @NgModule({
   declarations: [
@@ -31,10 +31,10 @@ import { HttpService } from './shared/services/http.service';
     ReactiveFormsModule,
     HttpClientModule,
     MainPageModule,
-    // AboutPageModule,
-    // AdminModule,
-    // WorksPageModule,
-    // BlogPageModule,
+    AboutPageModule,
+    AdminModule,
+    WorksPageModule,
+    BlogPageModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule
   ],

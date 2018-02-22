@@ -1,0 +1,64 @@
+<section class="skils">
+  <!-- ADD SKILL -->
+  <div class="add-skill">
+    <h2>Добавить Скилл</h2>
+    <form [formGroup]="form" class="add-skill__form">
+      <select formControlName="sel" class="add-skill__select">
+        <option value="frontend">frontend</option>
+        <option value="backend">backend</option>
+        <option value="workflow">workflow</option>
+      </select>
+      <input 
+        type="text" 
+        class="add-skill__input" 
+        formControlName="add"
+        placeholder="Новый Скилл,Сюда гани!">
+        <button type="submit" (click)="addSkill()" class="add-skill__btn">Добавить</button>
+    </form>
+  </div>
+  <hr>
+  <!-- DELETE -->
+  <div class="delete-skill">
+    <h2>Удалить Скилл</h2>
+    <!-- FRONT -->
+    <div class="frontend skils__slot">
+      <h3>frontend</h3>
+      <ul>
+        <li *ngFor="let item of frontend" class="skils__li">
+          <span>{{item}}</span>
+          <i class="fa fa-trash fa-2x" 
+              id={{item}} 
+              data-role="frontend"
+              (click)="delete($event)"></i>
+        </li>
+      </ul>
+    </div>
+    <!-- BACKEND -->
+    <div class="backend skils__slot">
+      <h3>backend</h3>
+      <ul>
+        <li *ngFor="let item of backend" class="skils__li">
+            <span>{{item}}</span>
+          <i class="fa fa-trash fa-2x" 
+            id={{item}} 
+            (click)="delete($event)"
+            data-role="backend">
+          </i>
+        </li>
+      </ul>
+    </div>
+    <!-- WORKFLOW -->
+    <div class="workflow skils__slot">
+      <h3>workflow</h3>
+      <ul>
+        <li *ngFor="let item of workflow" class="skils__li">
+          <span>{{item}}</span>
+          <i class="fa fa-trash fa-2x" 
+              id={{item}} 
+              data-role="workflow"
+              (click)="delete($event)"></i>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
