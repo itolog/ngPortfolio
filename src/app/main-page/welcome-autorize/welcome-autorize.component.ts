@@ -4,9 +4,9 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 import { AngularFireDatabase } from 'angularfire2/database';
 
 import {MainPageComponent} from '../main-page.component';
-import { User } from '../../user';
 import { Message } from '../../shared/models/message.model';
 import { AuthService } from '../../shared/services/auth.service';
+import { HttpService } from '../../shared/services/http.service';
 
 @Component({
   selector: 'app-welcome-autorize',
@@ -15,7 +15,7 @@ import { AuthService } from '../../shared/services/auth.service';
 })
 export class WelcomeAutorizeComponent implements OnInit {
   form: FormGroup;
-  user: User[] = [];
+  user = [];
   message: Message;
   localStorage = false;
   constructor(
@@ -23,9 +23,9 @@ export class WelcomeAutorizeComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute,
     private authService: AuthService,
-    db: AngularFireDatabase
+    private http: HttpService
   ) {
-      db.list<User>('/users').valueChanges().subscribe(val => {
+      this.http.getUser().subscribe(val => {
         this.user = val;
       }, err => {
         this.showMessage({

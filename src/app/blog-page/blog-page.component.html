@@ -1,12 +1,29 @@
 <section class="blog">
   <app-header></app-header>
   <main class="main">
-    <div class="left">
-      <app-blog-sidebar></app-blog-sidebar>
+    <!-- Navigation -->
+   <nav class="links">
+     <ul class="navigation__ul">
+        <li *ngFor="let item of posts">
+          <a href="blog#{{item.id}}" class="navigation__href">{{item.title}}</a>
+        </li>
+     </ul>
+   </nav>
+   <!-- Posts -->
+   <article class="posts">
+    <div class="post" *ngFor="let items of posts">
+      <div class="post__title">
+        <h3 class="post__header" id="{{items.id}}">{{items.title}}</h3>
+        <time class="post__time" datetime="2014-09-25">{{items.date}}</time>
+      </div>
+      <p class="post__text mini">
+        {{items.content}}
+      </p>
+      <button class="post__btn" (click)="showAll($event)">
+          Читать полностью
+      </button>
     </div>
-    <div class="right">
-      <app-blog-posts></app-blog-posts>
-    </div>
+   </article>
   </main>
   <app-footer></app-footer>
 </section>

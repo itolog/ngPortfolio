@@ -3,43 +3,28 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import { Works } from '../models/works.model';
+import { AngularFireDatabase } from 'angularfire2/database';
+import { User } from '../../user';
 
 @Injectable()
 export class HttpService {
-  headers = new HttpHeaders({
-    'Access-Control-Allow-Origin': '*',
-    'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
-    'Content-Type': 'application/json',
-    'Access-Control-Allow-Credentials': 'true'
-  });
-  constructor(private http: HttpClient) { }
-    // dev http://localhost:3000/db
-    // prod https://itologjs.000webhostapp.com/db.json
-    // GET WORKS
-   setUrl(val = '') {
-      return 'http://localhost:3000/' + val;
-    }
-    getWorks(): Observable<any> {
-      return this.http.get(this.setUrl('jobs'), {
-        headers: this.headers
-    });
+  constructor(private http: HttpClient, private db: AngularFireDatabase) { }
+  // FIREBASE
+  // Get Posts
+  getPosts(): Observable<any> {
+    return this.db.list('/posts').valueChanges();
   }
-  // ADD WORK
-  addWork(work: Works) {
-    const data = {
-      name: work.name,
-      img: work.img,
-      href: work.href,
-      content: work.content
-    };
-    return this.http.post(this.setUrl('jobs'), data, {
-      headers: this.headers
-    });
+  // Add Post
+  addPost(title, val) {
+    const itemsRef = this.db.list('/posts');
+    itemsRef.set(title, val);
   }
   // GET USERS
   getUser(): Observable<any> {
-    return this.http.get(this.setUrl('users'), {
-      headers : this.headers
-    });
+    return this.db.list<User>('/users').valueChanges();
+  }
+  // Get Works
+  getWorks(): Observable<any> {
+    return  this.db.list<Works>('/works').valueChanges();
   }
 }
