@@ -10,19 +10,28 @@ import { HttpService } from '../../shared/services/http.service';
 })
 export class BlogComponent implements OnInit {
   formBlog: FormGroup;
+  postDel: FormGroup;
   id: number;
+  title = [];
   constructor(private http: HttpService) {
     // Формируем ID
     this.http.getPosts().subscribe((data) => {
-      this.id = data.length +1;
+      this.id = data.length;
+      this.title = data;
     });
    }
 
   ngOnInit() {
+    // Add Post
     this.formBlog = new FormGroup({
       'title' : new FormControl(null),
       'content' : new FormControl(null),
-      'date' : new FormControl(null)
+      'date' : new FormControl(null),
+      "link": new FormControl(null)
+    });
+    // DEL Post
+    this.postDel = new FormGroup({
+      "del" : new FormControl(null)
     });
   }
   addPosts() {
@@ -31,7 +40,12 @@ export class BlogComponent implements OnInit {
       "content": formData.content,
       "date": formData.date,
       "title": formData.title,
-      "id": this.id
+      "id": this.id +1 + formData.title,
+      "link": formData.link
     });
+  }
+  delPost(evt) {
+    const el = this.postDel.value.del;
+    this.http.delPost(el);
   }
 }

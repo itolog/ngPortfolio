@@ -1,7 +1,7 @@
 <section class="slider">
   <h1 class="slider--title">Мои работы</h1>
   <div class="slider--wrapp">
-    <ul class="slider--wrapp__works" #slider>
+    <ul class="slider--wrapp__works" #slider *ngIf="work.length !== 0">
       <li class="slider--items"  *ngFor="let i of work">
         <div class="slider--items__info" *ngIf="i.id === id">
           <h3 class="slider--items__info_title">{{i.name}}</h3>
@@ -13,6 +13,9 @@
         </div>
       </li>
     </ul>
+    <div class="load" *ngIf="work.length == 0">
+        <img src=".././../assets/img/funny_loading.gif" alt="loading">
+    </div>
     <div class="button-wrapp">
       <button class="prev btn-slider" (click)="prev()">Prev</button>
       <button class="next btn-slider" (click)="next()">Next</button>

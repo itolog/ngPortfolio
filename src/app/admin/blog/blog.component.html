@@ -1,5 +1,6 @@
 <section class="blog">
-  <h3 class="content__h3">Страница "Блог"</h3>
+  <h2 class="content__h3">Страница "Блог"</h2>
+  <!-- Add Posts -->
   <form class="blog__form" [formGroup]="formBlog">
     <span class="blog__header">Добавить запись</span>
     <input 
@@ -12,6 +13,11 @@
           type="date" 
           class="blog__input" 
           placeholder="дата">
+		<input 
+					formControlName="link"
+					type="text"
+					class="blog__input"
+					placeholder="ссылка на сайт">
     <textarea 
           formControlName="content"
           name="blog" 
@@ -20,5 +26,18 @@
           rows="10" 
           placeholder="содержание"></textarea>
     <button class="form__button" (click)="addPosts()">Добавить</button>
+  </form>
+  <!-- Delete Post -->
+  <form [formGroup]="postDel" class="blog__form">
+		<h3 class="content__h3">Удалить запись</h3>
+      <fieldset>
+          <legend><h4>Кол-во записей: {{id}}</h4></legend>
+          <select name="del" formControlName="del">
+						<option *ngFor="let item of title" value={{item.title}}>{{item.title}} [{{item.date}}]</option> 
+					</select>  
+			</fieldset>
+			<button class="form__button del" type="submit" (click)="delPost($event)">
+				Удалить
+			</button>
   </form>
 </section>

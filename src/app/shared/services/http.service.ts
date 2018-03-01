@@ -19,6 +19,11 @@ export class HttpService {
     const itemsRef = this.db.list('/posts');
     itemsRef.set(title, val);
   }
+  // DEL POST
+  delPost(el) {
+    const itemsRef = this.db.list(`posts/${el}`);
+    itemsRef.remove();
+  }
   // GET USERS
   getUser(): Observable<any> {
     return this.db.list<User>('/users').valueChanges();

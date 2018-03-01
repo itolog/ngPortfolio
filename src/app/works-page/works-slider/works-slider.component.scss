@@ -50,6 +50,10 @@
   background: #282C34;
   color: aqua;
 }
+.load{
+  flex: 9;
+  border: 5px solid lightslategrey;
+}
 .slider--items{
   position: absolute;
   display: flex;

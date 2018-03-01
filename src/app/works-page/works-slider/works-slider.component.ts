@@ -9,7 +9,7 @@ import { HttpService } from '../../shared/services/http.service';
   encapsulation: ViewEncapsulation.None
 })
 export class WorksSliderComponent implements OnInit {
-  work;
+  work = [];
   id= 1;
   constructor(private http: HttpService) {
      this.http.getWorks().subscribe(val => {

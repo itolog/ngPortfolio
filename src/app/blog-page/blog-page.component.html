@@ -1,6 +1,6 @@
 <section class="blog">
   <app-header></app-header>
-  <main class="main">
+  <main class="main" *ngIf="posts.length !== 0">
     <!-- Navigation -->
    <nav class="links">
      <ul class="navigation__ul">
@@ -14,10 +14,15 @@
     <div class="post" *ngFor="let items of posts">
       <div class="post__title">
         <h3 class="post__header" id="{{items.id}}">{{items.title}}</h3>
-        <time class="post__time" datetime="2014-09-25">{{items.date}}</time>
+        <span class="post__time">{{items.date}}</span>
       </div>
       <p class="post__text mini">
         {{items.content}}
+        <a 
+          class="posts__link" 
+          href={{items.link}} 
+          *ngIf="items.link !== undefined"
+          target="_blank">перейти</a>
       </p>
       <button class="post__btn" (click)="showAll($event)">
           Читать полностью
@@ -25,5 +30,8 @@
     </div>
    </article>
   </main>
+  <div class="load" *ngIf="posts.length == 0">
+    <img src=".././../assets/img/funny_loading.gif" alt="loading">
+  </div>
   <app-footer></app-footer>
 </section>
