@@ -4,6 +4,9 @@
   padding: 0;
   box-sizing: border-box;
 }
+html{
+  scroll-behavior: smooth;
+}
 body{
   position: relative;
   min-height: 100vh;
@@ -13,9 +16,20 @@ a{
   display: block;
   cursor: pointer;
 }
+input{
+  outline: none;
+}
 li{
   list-style: none;
 }
+img{
+	max-width: 100%;
+	height: auto;
+}
+/*.centered{
+  max-width: 1600px;
+  margin: 0 auto;
+}*/
 .has-error{
     border: 2px solid red;
   }

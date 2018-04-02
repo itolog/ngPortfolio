@@ -9,7 +9,7 @@ import { HttpService } from '../shared/services/http.service';
   encapsulation: ViewEncapsulation.None
 })
 export class BlogPageComponent implements OnInit {
-  toggle = true;
+  // toggle = true;
   posts = [];
   constructor(private http: HttpService) {
     // Get Posts from Firebase
@@ -19,9 +19,9 @@ export class BlogPageComponent implements OnInit {
     
   }
   // Функция смены текста кнопки
-  showAll(evt) {
-    this.toggle = this.toggle = !this.toggle;
-    evt.target.previousElementSibling.classList.toggle('mini');
-    evt.target.innerText = this.toggle ? 'Читать полностью' : 'Скрыть';
-  }
+  // showAll(evt) {
+  //   this.toggle = this.toggle = !this.toggle;
+  //   evt.target.previousElementSibling.classList.toggle('mini');
+  //   evt.target.innerText = this.toggle ? 'Читать полностью' : 'Скрыть';
+  // }
 }

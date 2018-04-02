@@ -10,13 +10,27 @@
      </ul>
    </nav>
    <!-- Posts -->
-   <article class="posts">
-    <div class="post" *ngFor="let items of posts">
+   <section class="posts">
+    <article class="post" *ngFor="let items of posts">
+        <!-- <details>
+            <summary class="post__title"> 
+              <h3 class="post__header" id="{{items.id}}">{{items.title}}</h3>
+              <span class="post__time">{{items.date}}</span>
+            </summary>
+            <p class="post__text">
+              {{items.content}}
+              <a 
+                class="posts__link" 
+                href={{items.link}} 
+                *ngIf="items.link !== undefined"
+                target="_blank">перейти</a>
+            </p>
+        </details> -->
       <div class="post__title">
         <h3 class="post__header" id="{{items.id}}">{{items.title}}</h3>
         <span class="post__time">{{items.date}}</span>
       </div>
-      <p class="post__text mini">
+      <p class="post__text">
         {{items.content}}
         <a 
           class="posts__link" 
@@ -24,11 +38,11 @@
           *ngIf="items.link !== undefined"
           target="_blank">перейти</a>
       </p>
-      <button class="post__btn" (click)="showAll($event)">
+      <!-- <button class="post__btn" (click)="showAll($event)">
           Читать полностью
-      </button>
-    </div>
-   </article>
+      </button> -->
+    </article>
+   </section>
   </main>
   <div class="load" *ngIf="posts.length == 0">
     <img src=".././../assets/img/funny_loading.gif" alt="loading">

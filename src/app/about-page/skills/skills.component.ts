@@ -1,5 +1,6 @@
 import {Component, OnInit, ViewChild, OnDestroy, ElementRef, Renderer2} from '@angular/core';
 import { AngularFireDatabase } from 'angularfire2/database';
+import { ThrottleService } from '../../shared/services/throttle.service';
 
 @Component({
   selector: 'app-skills',
@@ -31,7 +32,11 @@ export class SkillsComponent implements OnInit, OnDestroy {
       'id': 1
     }
   ];
-  constructor(private render: Renderer2, db: AngularFireDatabase) { 
+  constructor(
+    private render: Renderer2, 
+    db: AngularFireDatabase,
+    private throttle: ThrottleService
+  ) { 
     db.list('/frontend').valueChanges().subscribe(val => {
       this.Frontend[0]['skill'] = val;
     });
@@ -43,11 +48,13 @@ export class SkillsComponent implements OnInit, OnDestroy {
     });
   }
   ngOnInit() {
-    window.addEventListener('scroll', this.scroll, true);
+    window.addEventListener('scroll',  this.throttle.throttle(this.scroll), true);
   }
   ngOnDestroy() {
-    window.removeEventListener('scroll', this.scroll, true);
+    window.removeEventListener('scroll', this.throttle.throttle(this.scroll), true);
   }
+  
+  // SCroll fn
   scroll = (): void => {
     const topScroll = window.scrollY  - 120;
     const frontTop = this.frontEl.nativeElement.offsetTop;

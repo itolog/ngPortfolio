@@ -17,6 +17,8 @@ import { AboutPageModule } from './about-page/about-page.module';
 import { AdminModule } from './admin/admin.module';
 import { WorksPageModule } from './works-page/works-page.module';
 import { BlogPageModule } from './blog-page/blog-page.module';
+import { AuthGuard } from './shared/services/auth-guard.service';
+import { ThrottleService } from './shared/services/throttle.service';
 
 @NgModule({
   declarations: [
@@ -40,7 +42,9 @@ import { BlogPageModule } from './blog-page/blog-page.module';
   ],
   providers: [
     HttpService,
-    AuthService
+    AuthService,
+    AuthGuard,
+    ThrottleService
   ],
   bootstrap: [AppComponent]
 })

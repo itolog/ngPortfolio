@@ -8,7 +8,7 @@ import { SkilsComponent } from './skils/skils.component';
 
 
 const route: Routes = [
-  {path: 'admin', component: AdminComponent, children: [
+  {path: 'admnpanel007', component: AdminComponent, children: [
     {path: 'work', component: WorkComponent},
     {path: 'skils', component: SkilsComponent},
     {path: 'blog', component: BlogComponent}

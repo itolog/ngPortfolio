@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import { AngularFireDatabase } from 'angularfire2/database';
 
@@ -21,7 +21,6 @@ export class WelcomeAutorizeComponent implements OnInit {
   constructor(
     private hide: MainPageComponent,
     private router: Router,
-    private route: ActivatedRoute,
     private authService: AuthService,
     private http: HttpService
   ) {
@@ -67,7 +66,7 @@ export class WelcomeAutorizeComponent implements OnInit {
         this.message.text = '';
         window.localStorage.setItem('dataUser', JSON.stringify(this.user));
         this.authService.logIn();
-        this.router.navigate(['/admin']);
+        this.router.navigate(['/admnpanel007']);
       } else {
         this.showMessage({
           text: 'Неверный пароль или логин!',
@@ -77,6 +76,6 @@ export class WelcomeAutorizeComponent implements OnInit {
   }
 // function to Admin
 toAdmin() {
-  this.router.navigate(['/admin'], {relativeTo: this.route});
+  this.router.navigate(['/admnpanel007']);
 }
 }
